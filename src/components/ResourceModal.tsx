@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { X, Clock, Share2, Heart, ExternalLink, Copy, CheckCircle2, AlertTriangle, FileText, Calendar, Users, GraduationCap, Stethoscope, Calculator, ListTree, Newspaper, Pill as PillIcon, Target, Download, BookOpen, UserCheck } from 'lucide-react';
+import { X, Clock, Share2, Heart, Copy, CheckCircle2, AlertTriangle, FileText, Calendar, Users } from 'lucide-react';
 import { Resource } from '@/types';
 import { SPECIALTIES } from '@/data/constants';
 import { getScoreById } from '@/data/medicalScores';
+import { getCategoryConfig } from '@/data/categoryConfig';
 import { ScoreCalculator } from './ScoreCalculator';
 
 interface ResourceModalProps {
@@ -12,84 +13,6 @@ interface ResourceModalProps {
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
 }
-
-const getCategoryConfig = (category: string) => {
-  const configs: Record<string, { icon: React.ReactNode; label: string; gradient: string; bgLight: string; textColor: string; actionLabel: string; actionIcon: React.ReactNode }> = {
-    pdf: { 
-      icon: <FileText size={24} />, 
-      label: 'Document PDF',
-      gradient: 'from-sky-500 to-sky-600',
-      bgLight: 'bg-sky-50 dark:bg-sky-900/20',
-      textColor: 'text-sky-600 dark:text-sky-400',
-      actionLabel: 'Voir',
-      actionIcon: <FileText size={16} />
-    },
-    classifications: { 
-      icon: <ListTree size={24} />, 
-      label: 'Classification',
-      gradient: 'from-violet-500 to-violet-600',
-      bgLight: 'bg-violet-50 dark:bg-violet-900/20',
-      textColor: 'text-violet-600 dark:text-violet-400',
-      actionLabel: 'Consulter',
-      actionIcon: <ListTree size={16} />
-    },
-    scores: { 
-      icon: <Calculator size={24} />, 
-      label: 'Score Médical',
-      gradient: 'from-emerald-500 to-emerald-600',
-      bgLight: 'bg-emerald-50 dark:bg-emerald-900/20',
-      textColor: 'text-emerald-600 dark:text-emerald-400',
-      actionLabel: 'Voir le résultat',
-      actionIcon: <Target size={16} />
-    },
-    protocols: { 
-      icon: <Stethoscope size={24} />, 
-      label: 'Protocole CAT',
-      gradient: 'from-primary to-teal-600',
-      bgLight: 'bg-teal-50 dark:bg-teal-900/20',
-      textColor: 'text-teal-600 dark:text-teal-400',
-      actionLabel: 'Appliquer',
-      actionIcon: <Stethoscope size={16} />
-    },
-    medicaments: { 
-      icon: <PillIcon size={24} />, 
-      label: 'Médicament',
-      gradient: 'from-amber-500 to-amber-600',
-      bgLight: 'bg-amber-50 dark:bg-amber-900/20',
-      textColor: 'text-amber-600 dark:text-amber-400',
-      actionLabel: 'Voir posologie',
-      actionIcon: <PillIcon size={16} />
-    },
-    news: { 
-      icon: <Newspaper size={24} />, 
-      label: 'Actualité',
-      gradient: 'from-rose-500 to-rose-600',
-      bgLight: 'bg-rose-50 dark:bg-rose-900/20',
-      textColor: 'text-rose-600 dark:text-rose-400',
-      actionLabel: 'Lire plus',
-      actionIcon: <ExternalLink size={16} />
-    },
-    congres: { 
-      icon: <Calendar size={24} />, 
-      label: 'Congrès',
-      gradient: 'from-indigo-500 to-indigo-600',
-      bgLight: 'bg-indigo-50 dark:bg-indigo-900/20',
-      textColor: 'text-indigo-600 dark:text-indigo-400',
-      actionLabel: "S'inscrire",
-      actionIcon: <UserCheck size={16} />
-    },
-    courses: { 
-      icon: <GraduationCap size={24} />, 
-      label: 'Formation',
-      gradient: 'from-orange-500 to-orange-600',
-      bgLight: 'bg-orange-50 dark:bg-orange-900/20',
-      textColor: 'text-orange-600 dark:text-orange-400',
-      actionLabel: 'Commencer',
-      actionIcon: <BookOpen size={16} />
-    },
-  };
-  return configs[category] || configs.pdf;
-};
 
 export const ResourceModal = ({ resource, isOpen, onClose, isFavorite, onToggleFavorite }: ResourceModalProps) => {
   const [copied, setCopied] = useState(false);

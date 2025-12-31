@@ -18,6 +18,10 @@ export interface CategoryConfig {
   modalBadge: string;
   actionLabel: string;
   actionIcon: React.ReactNode;
+  // Modal-specific styles
+  gradient: string;
+  bgLight: string;
+  textColor: string;
 }
 
 export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
@@ -32,8 +36,11 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     borderClass: 'border-category-pdf/30',
     gradientClass: 'from-blue-500 to-blue-600',
     modalBadge: 'Document PDF',
-    actionLabel: 'Télécharger',
-    actionIcon: <Download size={16} />,
+    actionLabel: 'Voir',
+    actionIcon: <FileText size={16} />,
+    gradient: 'from-sky-500 to-sky-600',
+    bgLight: 'bg-sky-50 dark:bg-sky-900/20',
+    textColor: 'text-sky-600 dark:text-sky-400',
   },
   classifications: {
     id: 'classifications',
@@ -48,6 +55,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Classification',
     actionLabel: 'Consulter',
     actionIcon: <ListTree size={16} />,
+    gradient: 'from-violet-500 to-violet-600',
+    bgLight: 'bg-violet-50 dark:bg-violet-900/20',
+    textColor: 'text-violet-600 dark:text-violet-400',
   },
   scores: {
     id: 'scores',
@@ -60,8 +70,11 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     borderClass: 'border-category-scores/30',
     gradientClass: 'from-emerald-500 to-emerald-600',
     modalBadge: 'Score Médical',
-    actionLabel: 'Calculer',
+    actionLabel: 'Voir le résultat',
     actionIcon: <Target size={16} />,
+    gradient: 'from-emerald-500 to-emerald-600',
+    bgLight: 'bg-emerald-50 dark:bg-emerald-900/20',
+    textColor: 'text-emerald-600 dark:text-emerald-400',
   },
   protocols: {
     id: 'protocols',
@@ -76,6 +89,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Protocole CAT',
     actionLabel: 'Appliquer',
     actionIcon: <Stethoscope size={16} />,
+    gradient: 'from-teal-500 to-teal-600',
+    bgLight: 'bg-teal-50 dark:bg-teal-900/20',
+    textColor: 'text-teal-600 dark:text-teal-400',
   },
   medicaments: {
     id: 'medicaments',
@@ -90,6 +106,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Médicament',
     actionLabel: 'Voir posologie',
     actionIcon: <Syringe size={16} />,
+    gradient: 'from-amber-500 to-amber-600',
+    bgLight: 'bg-amber-50 dark:bg-amber-900/20',
+    textColor: 'text-amber-600 dark:text-amber-400',
   },
   news: {
     id: 'news',
@@ -104,6 +123,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Actualité',
     actionLabel: 'Lire plus',
     actionIcon: <Globe size={16} />,
+    gradient: 'from-rose-500 to-rose-600',
+    bgLight: 'bg-rose-50 dark:bg-rose-900/20',
+    textColor: 'text-rose-600 dark:text-rose-400',
   },
   congres: {
     id: 'congres',
@@ -118,6 +140,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Congrès',
     actionLabel: "S'inscrire",
     actionIcon: <UserCheck size={16} />,
+    gradient: 'from-indigo-500 to-indigo-600',
+    bgLight: 'bg-indigo-50 dark:bg-indigo-900/20',
+    textColor: 'text-indigo-600 dark:text-indigo-400',
   },
   courses: {
     id: 'courses',
@@ -132,6 +157,9 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     modalBadge: 'Formation',
     actionLabel: 'Commencer',
     actionIcon: <Award size={16} />,
+    gradient: 'from-orange-500 to-orange-600',
+    bgLight: 'bg-orange-50 dark:bg-orange-900/20',
+    textColor: 'text-orange-600 dark:text-orange-400',
   },
 };
 
