@@ -1,6 +1,6 @@
 import { Send } from 'lucide-react';
-import { LOGO_URL } from '@/data/constants';
 import { TabType } from '@/types';
+import logoImage from '@/assets/logo.png';
 
 interface FooterProps {
   setActiveTab: (tab: TabType) => void;
@@ -15,15 +15,13 @@ export const Footer = ({ setActiveTab, darkMode }: FooterProps) => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img 
-              src={darkMode 
-                ? "https://www.image-heberg.fr/files/17498449931691648663.png" 
-                : LOGO_URL
-              } 
+              src={logoImage}
               alt="Clinivium" 
-              className="h-8 w-auto mb-4"
-              onError={(e) => { 
-                (e.target as HTMLImageElement).src = "https://via.placeholder.com/150x40?text=CLINIVIUM"; 
-              }}
+              className={`h-12 w-auto mb-4 transition-all duration-500 ${
+                darkMode 
+                  ? 'brightness-0 invert' 
+                  : ''
+              }`}
             />
             <p className="text-sm text-muted-foreground">
               La plateforme de référence pour les professionnels de santé.
