@@ -54,7 +54,7 @@ export const HeroSection = ({ allCards, onOpenResource }: HeroSectionProps) => {
         </p>
 
         {/* Search */}
-        <div ref={searchRef} className="relative max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div ref={searchRef} className="relative max-w-2xl mx-auto animate-fade-in z-[100]" style={{ animationDelay: '0.3s' }}>
           <div className="relative">
             <div className="absolute inset-0 rounded-2xl gradient-hero opacity-20 blur-xl" />
             <div className="relative bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
