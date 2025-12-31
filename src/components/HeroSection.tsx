@@ -28,7 +28,7 @@ export const HeroSection = ({ allCards, onOpenResource }: HeroSectionProps) => {
     : [];
 
   return (
-    <section className="relative py-16 lg:py-24 overflow-visible">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl animate-float" />
@@ -54,7 +54,7 @@ export const HeroSection = ({ allCards, onOpenResource }: HeroSectionProps) => {
         </p>
 
         {/* Search */}
-        <div ref={searchRef} className="relative max-w-2xl mx-auto animate-fade-in z-50" style={{ animationDelay: '0.3s' }}>
+        <div ref={searchRef} className="relative max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
           <div className="relative">
             <div className="absolute inset-0 rounded-2xl gradient-hero opacity-20 blur-xl" />
             <div className="relative bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
