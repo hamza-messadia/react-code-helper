@@ -85,7 +85,7 @@ export const HeroSection = ({ allCards, onOpenResource }: HeroSectionProps) => {
 
           {/* Search Results Dropdown */}
           {showResults && searchQuery.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-card rounded-2xl shadow-2xl border border-border overflow-hidden z-50 animate-scale-in">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-card rounded-2xl shadow-2xl border border-border overflow-hidden z-[9999] animate-scale-in">
               <div className="p-4 border-b border-border flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Search size={14} className="text-primary" />
