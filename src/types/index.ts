@@ -6,6 +6,7 @@ export interface Resource {
   version: string;
   specialty: string;
   category: string;
+  scoreId?: string;
 }
 
 export interface Category {

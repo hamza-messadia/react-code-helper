@@ -30,19 +30,44 @@ export const SPECIALTIES = [
 ];
 
 export const generateMockData = () => {
-  return Array.from({ length: 48 }, (_, i) => ({
+  const scores = [
+    { id: 101, title: 'Score CHA₂DS₂-VASc', scoreId: 'chadsvasc', specialty: 'cardio' },
+    { id: 102, title: 'Score HAS-BLED', scoreId: 'hasbled', specialty: 'cardio' },
+    { id: 103, title: 'Score de Wells - TVP', scoreId: 'wells-dvt', specialty: 'cardio' },
+    { id: 104, title: 'Score de Wells - EP', scoreId: 'wells-pe', specialty: 'cardio' },
+    { id: 105, title: 'Score de Glasgow (GCS)', scoreId: 'glasgow', specialty: 'neuro' },
+    { id: 106, title: 'NIHSS - AVC', scoreId: 'nihss', specialty: 'neuro' },
+    { id: 107, title: 'Score APGAR', scoreId: 'apgar', specialty: 'pediatrie' },
+    { id: 108, title: 'Score Child-Pugh', scoreId: 'child-pugh', specialty: 'internal' },
+    { id: 109, title: 'Score SOFA', scoreId: 'sofa', specialty: 'internal' },
+    { id: 110, title: 'Score CURB-65', scoreId: 'curb65', specialty: 'internal' },
+  ];
+
+  const otherResources = Array.from({ length: 38 }, (_, i) => ({
     id: i + 1,
-    title: i % 3 === 0 
-      ? `Protocole de traitement de l'arthrite aiguë ${i + 1}` 
-      : i % 2 === 0 
-      ? `Guide posologique pédiatrique - Edition ${i + 1}` 
-      : `Critères de diagnostic : Infarctus et AVC ${i + 1}`,
-    time: `${i + 1} jours`,
-    size: "1.2 MB",
+    title: i % 4 === 0 
+      ? `Protocole de prise en charge - Cas clinique ${i + 1}` 
+      : i % 4 === 1 
+      ? `Guide thérapeutique complet ${i + 1}` 
+      : i % 4 === 2
+      ? `Classification internationale ${i + 1}`
+      : `Fiche médicament - Molécule ${i + 1}`,
+    time: `${Math.floor(Math.random() * 30) + 1} jours`,
+    size: `${(Math.random() * 2 + 0.5).toFixed(1)} MB`,
     version: "2024",
     specialty: ['cardio', 'neuro', 'pediatrie', 'ortho', 'internal', 'hemo'][i % 6],
-    category: ['pdf', 'scores', 'protocols', 'medicaments'][i % 4]
+    category: ['pdf', 'classifications', 'protocols', 'medicaments'][i % 4]
   }));
+
+  const scoreResources = scores.map(s => ({
+    ...s,
+    time: 'Interactif',
+    size: '-',
+    version: '2024',
+    category: 'scores',
+  }));
+
+  return [...scoreResources, ...otherResources];
 };
 
 export const LOGO_URL = "http://www.image-heberg.fr/files/17669817152199019983.png";
