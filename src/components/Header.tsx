@@ -1,6 +1,6 @@
 import { Home, Mail, Info, Facebook, Twitter, Linkedin, Moon, Sun, Plus } from 'lucide-react';
-import { LOGO_URL } from '@/data/constants';
 import { TabType } from '@/types';
+import logoImage from '@/assets/logo.png';
 
 interface HeaderProps {
   activeTab: TabType;
@@ -17,19 +17,17 @@ export const Header = ({ activeTab, setActiveTab, darkMode, toggleDarkMode }: He
   return (
     <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button onClick={handleLogoClick} className="flex-shrink-0">
             <img 
-              src={darkMode 
-                ? "https://www.image-heberg.fr/files/17498449931691648663.png" 
-                : LOGO_URL
-              } 
+              src={logoImage}
               alt="Clinivium" 
-              className="h-10 w-auto transition-all duration-500"
-              onError={(e) => { 
-                (e.target as HTMLImageElement).src = "https://via.placeholder.com/180x50?text=CLINIVIUM"; 
-              }}
+              className={`h-14 w-auto transition-all duration-500 ${
+                darkMode 
+                  ? 'brightness-0 invert' 
+                  : ''
+              }`}
             />
           </button>
 
