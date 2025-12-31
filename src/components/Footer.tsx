@@ -1,20 +1,28 @@
 import { Send } from 'lucide-react';
 import { TabType } from '@/types';
 import logoImage from '@/assets/logo.png';
+
 interface FooterProps {
   setActiveTab: (tab: TabType) => void;
   darkMode: boolean;
 }
-export const Footer = ({
-  setActiveTab,
-  darkMode
-}: FooterProps) => {
-  return <footer className="bg-card border-t border-border mt-16">
+
+export const Footer = ({ setActiveTab, darkMode }: FooterProps) => {
+  return (
+    <footer className="bg-card border-t border-border mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={logoImage} alt="Clinivium" className={`h-12 w-auto mb-4 transition-all duration-500 ${darkMode ? 'brightness-0 invert' : ''}`} />
+            <img 
+              src={logoImage}
+              alt="Clinivium" 
+              className={`h-12 w-auto mb-4 transition-all duration-500 ${
+                darkMode 
+                  ? 'brightness-0 invert' 
+                  : ''
+              }`}
+            />
             <p className="text-sm text-muted-foreground">
               La plateforme de référence pour les professionnels de santé.
             </p>
@@ -73,7 +81,11 @@ export const Footer = ({
           <div>
             <h4 className="font-bold text-foreground mb-4">Newsletter</h4>
             <div className="flex gap-2">
-              <input type="email" placeholder="votre@email.com" className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border text-sm font-medium focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" />
+              <input 
+                type="email" 
+                placeholder="votre@email.com" 
+                className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border text-sm font-medium focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+              />
               <button className="p-2.5 rounded-xl gradient-hero text-primary-foreground hover:opacity-90 transition-opacity">
                 <Send size={18} />
               </button>
@@ -83,8 +95,11 @@ export const Footer = ({
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-xs text-muted-foreground">© 2025 CLINIVIUM. TOUS DROITS RÉSERVÉS.</p>
+          <p className="text-xs text-muted-foreground">
+            © 2024 CLINIVIUM. TOUS DROITS RÉSERVÉS.
+          </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
