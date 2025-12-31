@@ -73,7 +73,7 @@ export const Footer = ({
           <div>
             <h4 className="font-bold text-foreground mb-4">Newsletter</h4>
             <div className="flex gap-2">
-              <input type="email" placeholder="votre@email.com" className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border text-sm font-medium focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" />
+              <input type="email" className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border text-sm font-medium focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="votre@email.com" />
               <button className="p-2.5 rounded-xl gradient-hero text-primary-foreground hover:opacity-90 transition-opacity">
                 <Send size={18} />
               </button>
