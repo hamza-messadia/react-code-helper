@@ -43,6 +43,24 @@
     --teal-600: 168 84% 36%;
     --teal-700: 169 84% 28%;
 
+    /* Category Colors */
+    --cat-pdf: 221 83% 53%;
+    --cat-pdf-light: 221 83% 96%;
+    --cat-classifications: 262 83% 58%;
+    --cat-classifications-light: 262 83% 96%;
+    --cat-scores: 142 76% 36%;
+    --cat-scores-light: 142 76% 95%;
+    --cat-protocols: 168 76% 42%;
+    --cat-protocols-light: 168 76% 95%;
+    --cat-medicaments: 25 95% 53%;
+    --cat-medicaments-light: 25 95% 95%;
+    --cat-news: 0 84% 60%;
+    --cat-news-light: 0 84% 96%;
+    --cat-congres: 243 75% 59%;
+    --cat-congres-light: 243 75% 96%;
+    --cat-courses: 45 93% 47%;
+    --cat-courses-light: 45 93% 95%;
+
     --gradient-hero: linear-gradient(135deg, hsl(168 76% 42%) 0%, hsl(200 80% 50%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
     
@@ -85,6 +103,24 @@
     --teal-500: 168 76% 50%;
     --teal-600: 168 76% 55%;
     --teal-700: 168 76% 60%;
+
+    /* Category Colors - Dark Mode */
+    --cat-pdf: 221 83% 60%;
+    --cat-pdf-light: 221 40% 18%;
+    --cat-classifications: 262 83% 65%;
+    --cat-classifications-light: 262 40% 18%;
+    --cat-scores: 142 76% 45%;
+    --cat-scores-light: 142 40% 15%;
+    --cat-protocols: 168 76% 50%;
+    --cat-protocols-light: 168 40% 15%;
+    --cat-medicaments: 25 95% 60%;
+    --cat-medicaments-light: 25 40% 15%;
+    --cat-news: 0 84% 65%;
+    --cat-news-light: 0 40% 18%;
+    --cat-congres: 243 75% 65%;
+    --cat-congres-light: 243 40% 18%;
+    --cat-courses: 45 93% 55%;
+    --cat-courses-light: 45 40% 15%;
 
     --gradient-hero: linear-gradient(135deg, hsl(168 76% 35%) 0%, hsl(200 70% 40%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(220 20% 12%) 0%, hsl(220 20% 10%) 100%);
