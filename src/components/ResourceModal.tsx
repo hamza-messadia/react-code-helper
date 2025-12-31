@@ -21,8 +21,8 @@ const getCategoryConfig = (category: string) => {
       gradient: 'from-sky-500 to-sky-600',
       bgLight: 'bg-sky-50 dark:bg-sky-900/20',
       textColor: 'text-sky-600 dark:text-sky-400',
-      actionLabel: 'Télécharger',
-      actionIcon: <Download size={16} />
+      actionLabel: 'Voir',
+      actionIcon: <FileText size={16} />
     },
     classifications: { 
       icon: <ListTree size={24} />, 

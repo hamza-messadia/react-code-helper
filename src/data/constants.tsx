@@ -61,6 +61,17 @@ export const generateMockData = () => {
     { id: 110, title: 'Score CURB-65', scoreId: 'curb65', specialty: 'internal' },
   ];
 
+  // Sample cards for each category
+  const sampleCards = [
+    { id: 201, title: 'Guide des Antibiotiques 2024', category: 'pdf', specialty: 'infectio', time: '5 jours', size: '2.3 MB', version: '2024' },
+    { id: 202, title: 'Classification TNM des Cancers', category: 'classifications', specialty: 'onco', time: '10 jours', size: '1.1 MB', version: '2024' },
+    { id: 203, title: 'CAT devant une Douleur Thoracique', category: 'protocols', specialty: 'urgences', time: '3 jours', size: '0.8 MB', version: '2024' },
+    { id: 204, title: 'Amoxicilline - Fiche Complète', category: 'medicaments', specialty: 'infectio', time: '7 jours', size: '0.5 MB', version: '2024' },
+    { id: 205, title: 'Nouvelles recommandations HTA 2024', category: 'news', specialty: 'cardio', time: '1 jour', size: '-', version: '2024' },
+    { id: 206, title: 'Congrès Européen de Cardiologie', category: 'congres', specialty: 'cardio', time: '15-18 Mars 2024', size: '-', version: '2024' },
+    { id: 207, title: 'Formation ECG Avancée', category: 'courses', specialty: 'cardio', time: '8 heures', size: '-', version: '2024' },
+  ];
+
   const otherResources = Array.from({ length: 38 }, (_, i) => ({
     id: i + 1,
     title: i % 4 === 0 
@@ -85,7 +96,7 @@ export const generateMockData = () => {
     category: 'scores',
   }));
 
-  return [...scoreResources, ...otherResources];
+  return [...scoreResources, ...sampleCards, ...otherResources];
 };
 
 export const LOGO_URL = "http://www.image-heberg.fr/files/17669817152199019983.png";
