@@ -83,7 +83,7 @@ export const Footer = ({
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-xs text-muted-foreground">© 2025 CLINIVIUM. TOUS DROITS RÉSERVÉS.</p>
+          <p className="text-xs text-muted-foreground">© 2025 CLINIVIUM. TOUS DROITS RÉSERVÉS - Designed by Hamza MESSADIA</p>
         </div>
       </div>
     </footer>;
