@@ -1,8 +1,7 @@
 import React from 'react';
-import { Heart, Clock, ArrowRight, TrendingUp } from 'lucide-react';
+import { Heart, Clock, ArrowRight, FileText, Calculator, ClipboardList, Pill as PillIcon, Newspaper, CalendarDays, GraduationCap, ListTree } from 'lucide-react';
 import { Resource } from '@/types';
 import { SPECIALTIES } from '@/data/constants';
-import { getCategoryConfig } from '@/data/categoryConfig';
 
 interface ResourceCardProps {
   resource: Resource;
@@ -12,67 +11,104 @@ interface ResourceCardProps {
   index: number;
 }
 
+const getCategoryStyle = (category: string) => {
+  const styles: Record<string, { icon: React.ReactNode; label: string; accent: string }> = {
+    pdf: { 
+      icon: <FileText size={18} />, 
+      label: 'PDF',
+      accent: 'from-sky-500 to-sky-600'
+    },
+    classifications: { 
+      icon: <ListTree size={18} />, 
+      label: 'Classification',
+      accent: 'from-violet-500 to-violet-600'
+    },
+    scores: { 
+      icon: <Calculator size={18} />, 
+      label: 'Score',
+      accent: 'from-emerald-500 to-emerald-600'
+    },
+    protocols: { 
+      icon: <ClipboardList size={18} />, 
+      label: 'Protocole',
+      accent: 'from-primary to-teal-600'
+    },
+    medicaments: { 
+      icon: <PillIcon size={18} />, 
+      label: 'Médicament',
+      accent: 'from-amber-500 to-amber-600'
+    },
+    news: { 
+      icon: <Newspaper size={18} />, 
+      label: 'Actualité',
+      accent: 'from-rose-500 to-rose-600'
+    },
+    congres: { 
+      icon: <CalendarDays size={18} />, 
+      label: 'Congrès',
+      accent: 'from-indigo-500 to-indigo-600'
+    },
+    courses: { 
+      icon: <GraduationCap size={18} />, 
+      label: 'Formation',
+      accent: 'from-orange-500 to-orange-600'
+    },
+  };
+  return styles[category] || styles.pdf;
+};
+
 export const ResourceCard = ({ resource, isFavorite, onToggleFavorite, onOpen, index }: ResourceCardProps) => {
   const specialty = SPECIALTIES.find(s => s.id === resource.specialty);
-  const categoryConfig = getCategoryConfig(resource.category);
+  const categoryStyle = getCategoryStyle(resource.category);
 
   return (
     <div 
-      className={`group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 animate-fade-in cursor-pointer shadow-sm hover:shadow-xl border border-transparent hover:border-opacity-50`}
-      style={{ 
-        animationDelay: `${index * 0.05}s`,
-        borderColor: `hsl(var(--cat-${resource.category}))`,
-      }}
+      className="group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 animate-fade-in cursor-pointer border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
+      style={{ animationDelay: `${index * 0.03}s` }}
       onClick={() => onOpen(resource)}
     >
-      {/* Gradient Header */}
-      <div className={`relative h-24 bg-gradient-to-br ${categoryConfig.gradientClass} p-4 overflow-hidden`}>
-        {/* Decorative elements */}
-        <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-white/10" />
-        <div className="absolute -right-2 top-8 w-16 h-16 rounded-full bg-white/5" />
-        
-        {/* Category Icon */}
-        <div className="relative z-10 w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-          {categoryConfig.headerIcon}
+      {/* Top accent line */}
+      <div className={`h-1 bg-gradient-to-r ${categoryStyle.accent}`} />
+
+      <div className="p-5">
+        {/* Header Row */}
+        <div className="flex items-start justify-between mb-4">
+          {/* Category Badge */}
+          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r ${categoryStyle.accent} text-white`}>
+            {categoryStyle.icon}
+            <span className="text-xs font-bold">{categoryStyle.label}</span>
+          </div>
+
+          {/* Favorite Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite(resource.id);
+            }}
+            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isFavorite 
+                ? 'bg-red-100 dark:bg-red-900/30 text-red-500' 
+                : 'bg-muted/50 text-muted-foreground hover:bg-red-50 hover:text-red-400 dark:hover:bg-red-900/20'
+            }`}
+          >
+            <Heart size={16} fill={isFavorite ? "currentColor" : "none"} />
+          </button>
         </div>
 
-        {/* Favorite Button */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite(resource.id);
-          }}
-          className={`absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-            isFavorite 
-              ? 'bg-white text-red-500' 
-              : 'bg-white/20 text-white hover:bg-white hover:text-red-500'
-          }`}
-        >
-          <Heart size={16} fill={isFavorite ? "currentColor" : "none"} />
-        </button>
-      </div>
-
-      {/* Content */}
-      <div className="p-5">
-        {/* Category Label */}
-        <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3 ${categoryConfig.bgClass} ${categoryConfig.colorClass}`}>
-          {categoryConfig.label}
-        </span>
-
         {/* Title */}
-        <h3 className="font-bold text-foreground mb-3 line-clamp-2 min-h-[2.75rem] leading-snug group-hover:text-primary transition-colors duration-300">
+        <h3 className="font-bold text-foreground mb-4 line-clamp-2 min-h-[2.75rem] leading-snug group-hover:text-primary transition-colors duration-300">
           {resource.title}
         </h3>
 
-        {/* Meta Info */}
-        <div className="flex items-center gap-3 mb-4">
+        {/* Meta Row */}
+        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-5">
           {specialty && (
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-muted/50">
               {React.cloneElement(specialty.icon as React.ReactElement, { size: 12 })}
-              <span>{specialty.label}</span>
+              <span className="font-medium">{specialty.label}</span>
             </div>
           )}
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <div className="flex items-center gap-1">
             <Clock size={12} />
             <span>{resource.time}</span>
           </div>
@@ -84,20 +120,12 @@ export const ResourceCard = ({ resource, isFavorite, onToggleFavorite, onOpen, i
             e.stopPropagation();
             onOpen(resource);
           }}
-          className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${categoryConfig.bgClass} ${categoryConfig.colorClass} hover:bg-gradient-to-r hover:${categoryConfig.gradientClass} hover:text-white group/btn`}
+          className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-muted/50 text-foreground hover:bg-gradient-to-r hover:${categoryStyle.accent} hover:text-white group/btn border border-transparent hover:border-transparent`}
         >
-          {categoryConfig.actionLabel}
+          <span>Ouvrir</span>
           <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
         </button>
       </div>
-
-      {/* Score indicator for scores category */}
-      {resource.category === 'scores' && (
-        <div className="absolute top-4 left-4 flex items-center gap-1 px-2 py-1 rounded-md bg-white/20 backdrop-blur-sm">
-          <TrendingUp size={12} className="text-white" />
-          <span className="text-[10px] font-bold text-white">CALC</span>
-        </div>
-      )}
     </div>
   );
 };
