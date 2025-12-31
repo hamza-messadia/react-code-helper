@@ -1,7 +1,9 @@
 import { 
   LayoutDashboard, FileText, ListTree, Activity, Stethoscope, 
   Pill, Newspaper, CalendarDays, BookOpen, Heart, Brain, 
-  Baby, Bone, Droplets, Eye, Thermometer, Sparkles
+  Baby, Bone, Droplets, Eye, Thermometer, Sparkles, Ear, 
+  Scissors, Ribbon, Syringe, Smile, Dna, Zap, Hand, 
+  Footprints, Microscope, ShieldPlus, HeartPulse, Scan, Wind
 } from 'lucide-react';
 
 export const MAIN_CATEGORIES = [
@@ -19,14 +21,30 @@ export const MAIN_CATEGORIES = [
 
 export const SPECIALTIES = [
   { id: 'all', label: 'Tous', icon: <Sparkles size={20} /> },
-  { id: 'cardio', label: 'Cardio', icon: <Heart size={20} /> },
-  { id: 'neuro', label: 'Neuro', icon: <Brain size={20} /> },
-  { id: 'pediatrie', label: 'Pédia', icon: <Baby size={20} /> },
-  { id: 'ortho', label: 'Ortho', icon: <Bone size={20} /> },
-  { id: 'internal', label: 'Interne', icon: <Stethoscope size={20} /> },
-  { id: 'hemo', label: 'Hémo', icon: <Droplets size={20} /> },
-  { id: 'ophta', label: 'Ophta', icon: <Eye size={20} /> },
-  { id: 'infectio', label: 'Infectio', icon: <Thermometer size={20} /> },
+  { id: 'cardio', label: 'Cardiologie', icon: <Heart size={20} /> },
+  { id: 'neuro', label: 'Neurologie', icon: <Brain size={20} /> },
+  { id: 'pediatrie', label: 'Pédiatrie', icon: <Baby size={20} /> },
+  { id: 'ortho', label: 'Orthopédie', icon: <Bone size={20} /> },
+  { id: 'internal', label: 'Médecine Interne', icon: <Stethoscope size={20} /> },
+  { id: 'hemo', label: 'Hématologie', icon: <Droplets size={20} /> },
+  { id: 'ophta', label: 'Ophtalmologie', icon: <Eye size={20} /> },
+  { id: 'infectio', label: 'Infectiologie', icon: <Thermometer size={20} /> },
+  { id: 'pneumo', label: 'Pneumologie', icon: <Wind size={20} /> },
+  { id: 'orl', label: 'ORL', icon: <Ear size={20} /> },
+  { id: 'gastro', label: 'Gastro-entérologie', icon: <Pill size={20} /> },
+  { id: 'chirurgie', label: 'Chirurgie', icon: <Scissors size={20} /> },
+  { id: 'onco', label: 'Oncologie', icon: <Ribbon size={20} /> },
+  { id: 'endocrino', label: 'Endocrinologie', icon: <Syringe size={20} /> },
+  { id: 'dermato', label: 'Dermatologie', icon: <Hand size={20} /> },
+  { id: 'nephro', label: 'Néphrologie', icon: <Activity size={20} /> },
+  { id: 'uro', label: 'Urologie', icon: <ShieldPlus size={20} /> },
+  { id: 'gyneco', label: 'Gynécologie', icon: <HeartPulse size={20} /> },
+  { id: 'psy', label: 'Psychiatrie', icon: <Smile size={20} /> },
+  { id: 'radio', label: 'Radiologie', icon: <Scan size={20} /> },
+  { id: 'genetique', label: 'Génétique', icon: <Dna size={20} /> },
+  { id: 'urgences', label: 'Urgences', icon: <Zap size={20} /> },
+  { id: 'geriatrie', label: 'Gériatrie', icon: <Footprints size={20} /> },
+  { id: 'bio', label: 'Biologie', icon: <Microscope size={20} /> },
 ];
 
 export const generateMockData = () => {
